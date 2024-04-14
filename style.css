@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+}
+
+.logo {
+  margin-left: 10px;
+}
+
+#search {
+  margin-left: 40% !important;
+}
+
+.search-icon {
+  height: 10px;
+}
+
+.profile {
+  float: right;
+  cursor: pointer;
+}
+
+.clear {
+  clear: both;
+}
