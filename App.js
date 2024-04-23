@@ -12,16 +12,24 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import HeaderComponent from './HeaderComponent';
+import HeaderComponent from './component/HeaderComponent';
+import RestaurantCardComponent from './component/RestaurantCardComponent';
+import { restuarantList } from './data';
 import './style.css';
 
 const heading = (
   <>
     <HeaderComponent />
-    <h1>Namaste React</h1>
+    <div className="res-container">
+      {restuarantList?.map((item) => {
+        return (
+          <RestaurantCardComponent key={item.info.resId} data={item.info} />
+        );
+      })}
+    </div>
   </>
 );
-console.log(heading);
+console.log(HeaderComponent());
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // console.log(root);
 root.render(heading);
