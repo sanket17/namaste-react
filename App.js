@@ -10,26 +10,17 @@
 //  *
 //  */
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import HeaderComponent from './component/HeaderComponent';
-import RestaurantCardComponent from './component/RestaurantCardComponent';
-import { restuarantList } from './data';
-import './style.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import HeaderComponent from "./component/HeaderComponent";
+import "./style.css";
+import BodyComponent from "./component/BodyComponent";
 
-const heading = (
+const App = (
   <>
     <HeaderComponent />
-    <div className="res-container">
-      {restuarantList?.map((item) => {
-        return (
-          <RestaurantCardComponent key={item.info.resId} data={item.info} />
-        );
-      })}
-    </div>
+    <BodyComponent />
   </>
 );
-console.log(HeaderComponent());
-const root = ReactDOM.createRoot(document.getElementById('root'));
-// console.log(root);
-root.render(heading);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(App);
