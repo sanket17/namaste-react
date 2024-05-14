@@ -13,7 +13,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import HeaderComponent from "./component/HeaderComponent";
-import "./style.css";
+import "./style/style.css";
 import BodyComponent from "./component/BodyComponent";
 
 const App = (

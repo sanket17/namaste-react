@@ -14,7 +14,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   list-style-type: none;
-  width: 20rem;
+  width: auto;
   height: 100%;
   align-items: center;
 }
@@ -80,6 +80,16 @@
   margin-top: 20px;
   width: 10rem;
   height: 8rem;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4rem;
+}
+
+.shimmer-card {
+  height: 380px;
 }
 
 .clear {
