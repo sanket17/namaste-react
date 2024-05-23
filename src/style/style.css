@@ -24,12 +24,24 @@
   cursor: pointer;
 }
 
+#list > li > a {
+  text-decoration: none;
+}
+
 .cart-logo {
   height: 2rem;
 }
 .logo {
   margin-left: 5rem;
   cursor: pointer;
+}
+
+.border-css {
+  border-radius: 29px;
+  background: #e0e0e0;
+  box-shadow:
+    13px 13px 22px #969696,
+    -13px -13px 22px #ffffff;
 }
 
 .profile {
@@ -94,4 +106,141 @@
 
 .clear {
   clear: both;
+}
+
+/* Style for restaurant detail */
+
+#res-detail-container {
+  margin: 1% 25%;
+}
+
+#res-detail-container > h1 {
+  text-align: center;
+}
+
+#restaurant-detail-card {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+#restaurant-detail-card > div {
+  text-align: center;
+}
+
+.menu-title {
+  margin: 5% 5%;
+}
+
+summary {
+  display: inline;
+  max-height: 30px;
+  margin-bottom: 3%;
+  text-align: center;
+  cursor: pointer;
+  width: 90%;
+  padding: 15px;
+}
+
+#menu-list {
+  list-style: none;
+  display: inline;
+}
+
+#menu-list > li {
+  margin: 2% auto;
+}
+
+#menu-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;
+  padding: 10px;
+}
+
+#menu-detail > img {
+  height: 20px;
+  margin-left: 10px;
+}
+
+#menu-detail > div {
+  margin: 10px;
+  font-weight: bold;
+}
+
+#menu-image {
+  display: flex;
+  flex-direction: column;
+}
+
+#menu-image > img {
+  height: 100px;
+}
+
+#menu-image > button {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+  cursor: pointer;
+}
+
+/* Style for restaurant detail */
+.shimer-detail-card {
+  height: 120px;
+  width: 90%;
+  margin-bottom: 11%;
+  margin-top: 5%;
+}
+
+.div-2 {
+  height: 30px;
+  margin-bottom: 3%;
+  width: 90%;
+}
+
+.div-3 {
+  height: 120px;
+  width: 90%;
+}
+
+/* Login component */
+#login-container {
+  margin: 5% 25%;
+  height: auto;
+}
+
+#login-container > h1 {
+  text-align: center;
+}
+
+#login-container > form {
+  margin: 5% auto;
+  width: 40%;
+}
+
+.form-group-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+#login-form > label {
+  margin-bottom: 1%;
+}
+
+#login-form > button {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+  cursor: pointer;
+  margin-bottom: 5%;
+}
+
+#login-form {
+  justify-content: center;
 }

@@ -1,10 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const RestaurantCardComponent = (props) => {
-  const { name, cloudinaryImageId, avgRating, costForTwo, cuisines } =
+  const navigate = useNavigate();
+  const { id, name, cloudinaryImageId, avgRating, costForTwo, cuisines } =
     props.data;
   return (
-    <div className="card">
+    <div
+      className="card"
+      onClick={() => {
+        navigate(`/restaurant/${id}`);
+      }}>
       <img
         className="card-image"
         src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}

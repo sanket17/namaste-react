@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from "../style/images/logo.png";
 import Cart from "../style/images/cart.png";
 
@@ -6,13 +7,20 @@ const HeaderComponent = () => {
   const [buttonText, setButtonText] = useState("Login");
   return (
     <div id="header">
-      <img className="logo" src={Logo} alt="Logo image" />
+      <Link to="/">
+        <img className="logo" src={Logo} alt="Logo image" />
+      </Link>
 
       <ul id="list">
-        <li>Search</li>
-        <li>Offer</li>
-        <li>Help</li>
-        <li>Sign-in</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About Us</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
         <li>
           <img className="cart-logo" src={Cart} alt="cart" />
         </li>
