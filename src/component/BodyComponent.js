@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import RestaurantCardComponent from "./RestaurantCardComponent";
 import ShimmerComponent from "./ShimmerComponent";
 import { GET_RESTAURANT_LIST } from "../Utils/constant";
+import useDebounce from "../Utils/useDebounce";
 
 const BodyComponent = () => {
   const [resList, setResList] = useState([]);
@@ -38,15 +39,7 @@ const BodyComponent = () => {
     ]);
   };
 
-  const debounceFunction = (fnc, delay) => {
-    let timeout;
-    return function (...args) {
-      if (timeout) clearTimeout(timeout);
-      timeout = setTimeout(fnc(...args), delay);
-    };
-  };
-
-  const getDebounceEffect = debounceFunction(filterListByName, 500);
+  const getDebounceEffect = useDebounce(filterListByName);
 
   return (
     <div className="res-container">

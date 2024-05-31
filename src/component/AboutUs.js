@@ -2,11 +2,22 @@ import React from "react";
 import AboutMe from "./About/AboutMe";
 
 // export default function AboutUs() {
+//   const [count, setCount] = useState(0);
+
+//   useEffect(() => {
+//     // let interval = setInterval(() => setCount(count + 1), 1000);
+//     return () => {
+//       console.log("Inside unmount");
+//       // clearInterval(interval);
+//     };
+//   }, [count]);
 //   return (
 //     <>
 //       <h1>AboutUs</h1>
-//       <AboutMe count={1} />
-//       <AboutMe count={2} />
+//       <button onClick={() => setCount(count + 1)}>Add</button>
+//       {count}
+//       {/* <AboutMe count={1} />
+//       <AboutMe count={2} /> */}
 //     </>
 //   );
 // }

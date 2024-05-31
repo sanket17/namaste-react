@@ -1,28 +1,13 @@
-import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RestaurantDetailShimmer from "./RestaurantDetailShimmer";
-import { GET_RESTAURANT_DETAIL, MENU_IMAGE } from "../../Utils/constant";
+import { MENU_IMAGE } from "../../Utils/constant";
 import VegIcon from "../../style/images/icon-veg.png";
 import NonVegIcon from "../../style/images/icon-non-veg.png";
+import useRestaurantMenu from "../../Utils/useRestaurantMenu";
 
 export default function RestaurantDetail() {
   const params = useParams();
-  const [resDetail, setResDetail] = useState(null);
-  const [menuList, setMenuList] = useState(null);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const responseData = await fetch(`${GET_RESTAURANT_DETAIL}${params.resId}`);
-    const data = await responseData.json();
-    setResDetail(data?.data?.cards[2]?.card?.card?.info);
-    setMenuList(
-      data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-        ?.card?.itemCards,
-    );
-  };
+  const { resDetail, menuList } = useRestaurantMenu(params.resId);
 
   return resDetail === null && menuList === null ? (
     <RestaurantDetailShimmer />
