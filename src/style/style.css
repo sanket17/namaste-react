@@ -110,39 +110,15 @@
 
 /* Style for restaurant detail */
 
-#res-detail-container {
-  margin: 1% 25%;
-}
-
-#res-detail-container > h1 {
-  text-align: center;
-}
-
 #restaurant-detail-card {
   display: flex;
   flex-direction: column;
-  width: 90%;
   height: auto;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-#restaurant-detail-card > div {
-  text-align: center;
-}
-
-.menu-title {
-  margin: 5% 5%;
 }
 
 summary {
   display: inline;
-  max-height: 30px;
-  margin-bottom: 3%;
-  text-align: center;
   cursor: pointer;
-  width: 90%;
-  padding: 15px;
 }
 
 #menu-list {
@@ -158,8 +134,6 @@ summary {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 90%;
-  padding: 10px;
 }
 
 #menu-detail > img {
@@ -179,6 +153,7 @@ summary {
 
 #menu-image > img {
   height: 100px;
+  width: 150px;
 }
 
 #menu-image > button {

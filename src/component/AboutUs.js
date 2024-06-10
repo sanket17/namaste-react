@@ -1,5 +1,6 @@
 import React from "react";
 import AboutMe from "./About/AboutMe";
+import UserContext from "../Utils/UserContext";
 
 // export default function AboutUs() {
 //   const [count, setCount] = useState(0);
@@ -67,7 +68,10 @@ export default class AboutUs extends React.Component {
         <button onClick={() => this.increaseCount()}>+ in Parent</button>
         {this.state.count}
         <button onClick={() => this.decreaseCount()}>- in Parent</button>
-        {/* <AboutMe count={2} /> */}
+        <AboutMe count={2} />
+        <UserContext.Consumer>
+          {(data) => <h1>{data.loggedInUserName}</h1>}
+        </UserContext.Consumer>
       </>
     );
   }

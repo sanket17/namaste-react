@@ -3,6 +3,7 @@ import RestaurantCardComponent from "./RestaurantCardComponent";
 import ShimmerComponent from "./ShimmerComponent";
 import { GET_RESTAURANT_LIST } from "../Utils/constant";
 import useDebounce from "../Utils/useDebounce";
+import withPromtedRestaurantCard from "./Restaurant/PromotedRestaurantCard";
 
 const BodyComponent = () => {
   const [resList, setResList] = useState([]);
@@ -12,6 +13,10 @@ const BodyComponent = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const PromtotedRestaurantCard = withPromtedRestaurantCard(
+    RestaurantCardComponent,
+  );
 
   const fetchData = async () => {
     const data = await fetch(GET_RESTAURANT_LIST);
@@ -42,20 +47,22 @@ const BodyComponent = () => {
   const getDebounceEffect = useDebounce(filterListByName);
 
   return (
-    <div className="res-container">
+    <div className="flex flex-wrap flex-col mx-auto my-4 p-4 w-10/12">
       <div className="search-div">
         <input
           type="text"
+          name="searchText"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
             getDebounceEffect(e.target.value);
           }}
-          // onKeyUp={(e) => {
-          //   getDebounceEffect(e.target.value);
-          // }}
+          className="border border-black rounded-lg font-black"
         />
-        <button type="submit" onClick={() => filterListByName()}>
+        <button
+          type="submit"
+          className="mx-2 bg-green-500 text-white rounded-lg p-1"
+          onClick={() => filterListByName()}>
           Search
         </button>
       </div>
@@ -66,7 +73,9 @@ const BodyComponent = () => {
           </>
         ) : (
           filteredList?.map((item) => {
-            return (
+            return item.info.avgRating > 4.0 ? (
+              <PromtotedRestaurantCard key={item.info.id} data={item.info} />
+            ) : (
               <RestaurantCardComponent key={item.info.id} data={item.info} />
             );
           })

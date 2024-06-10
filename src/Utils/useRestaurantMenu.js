@@ -13,10 +13,13 @@ const useRestaurantMenu = (resId) => {
     const responseData = await fetch(`${GET_RESTAURANT_DETAIL}${resId}`);
     const data = await responseData.json();
     setResDetail(data?.data?.cards[2]?.card?.card?.info);
-    setMenuList(
-      data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-        ?.card?.itemCards,
-    );
+    const listData =
+      data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+        (item) =>
+          item?.card?.card?.["@type"] ===
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+      );
+    setMenuList(listData);
   };
   return { resDetail: resDetail, menuList: menuList };
 };
