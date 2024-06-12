@@ -1,6 +1,7 @@
 import React, { useState, lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Provider } from "react-redux";
 import HeaderComponent from "./component/HeaderComponent";
 import "./style/style.css";
 import BodyComponent from "./component/BodyComponent";
@@ -10,6 +11,8 @@ import RestaurantDetail from "./component/Restaurant/RestaurantDetail";
 import Login from "./component/Auth/Login";
 import CityContext from "./Utils/CityContext";
 import UserContext from "./Utils/UserContext";
+import { appStore } from "./Store/AppStore";
+import Cart from "./component/Cart/Cart";
 
 const AboutUs = lazy(() => import("./component/AboutUs"));
 
@@ -17,19 +20,21 @@ const App = () => {
   const [defaultCityName, setDefaultCityName] = useState("Mumbai");
   return (
     <>
-      <CityContext.Provider
-        value={{
-          cityName: defaultCityName,
-          setDefaultCityName,
-        }}>
-        <UserContext.Provider
+      <Provider store={appStore}>
+        <CityContext.Provider
           value={{
-            loggedInUserName: "Sanket Tikam",
+            cityName: defaultCityName,
+            setDefaultCityName,
           }}>
-          <HeaderComponent />
-          <Outlet />
-        </UserContext.Provider>
-      </CityContext.Provider>
+          <UserContext.Provider
+            value={{
+              loggedInUserName: "Sanket Tikam",
+            }}>
+            <HeaderComponent />
+            <Outlet />
+          </UserContext.Provider>
+        </CityContext.Provider>
+      </Provider>
     </>
   );
 };
@@ -58,6 +63,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantDetail />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,

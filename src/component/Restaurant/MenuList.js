@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { MENU_IMAGE } from "../../Utils/constant";
 import VegIcon from "../../style/images/icon-veg.png";
 import NonVegIcon from "../../style/images/icon-non-veg.png";
 import DownArrow from "../../style/images/down-arrow.png";
 import RightArrow from "../../style/images/right.png";
 
+import { addItem } from "../../Store/CartSlice";
+
 export default function MenuList({ listData, isOpen, setOpenIndex }) {
   const { title, itemCards } = listData?.card?.card;
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = (menuItem) => {
+    dispatch(addItem(menuItem));
+  };
 
   return (
     <div id="menu-container">
@@ -49,7 +58,9 @@ export default function MenuList({ listData, isOpen, setOpenIndex }) {
                         src={`${MENU_IMAGE}${menuData.imageId}`}
                         alt={menuData.name}
                       />
-                      <button>Add</button>
+                      <button onClick={() => handleAddItem(menuData)}>
+                        Add
+                      </button>
                     </div>
                   </div>
                 </li>

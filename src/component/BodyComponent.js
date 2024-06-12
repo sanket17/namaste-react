@@ -67,7 +67,7 @@ const BodyComponent = () => {
         </button>
       </div>
       <div className="res-list">
-        {filteredList.length === 0 ? (
+        {filteredList && filteredList.length === 0 ? (
           <>
             <ShimmerComponent />
           </>
