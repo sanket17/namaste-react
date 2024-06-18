@@ -23,7 +23,6 @@ export default function Cart() {
           <button
             className="border bg-green-500 p-4 text-white rounded-lg"
             onClick={() => {
-              console.log("rendered");
               handleClearCartClick();
             }}>
             Clear Cart
@@ -39,6 +38,7 @@ export default function Cart() {
       {cartItems.map((item) => {
         return (
           <div
+            data-testid="cartItem"
             key={item.id}
             className="flex flex-wrap justify-between border-b-4 mt-2">
             <div className="flex flex-wrap">
@@ -55,7 +55,9 @@ export default function Cart() {
                 <span>&#8377;</span>
                 {(item.price || item.defaultPrice) / 100}
               </h2>
-              <button onClick={() => handleDelete(item.id)}>
+              <button
+                data-testid="deleteItem"
+                onClick={() => handleDelete(item.id)}>
                 {" "}
                 <img
                   src={DeleteImage}

@@ -7,6 +7,7 @@ const RestaurantCardComponent = (props) => {
     props.data;
   return (
     <div
+      data-testid="resCard"
       className="card"
       onClick={() => {
         navigate(`/restaurant/${id}`);

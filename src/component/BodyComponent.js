@@ -22,10 +22,10 @@ const BodyComponent = () => {
     const data = await fetch(GET_RESTAURANT_LIST);
 
     const jsonData = await data.json();
-    console.log(
-      jsonData?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants,
-    );
+    // console.log(
+    //   jsonData?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
+    //     ?.restaurants,
+    // );
     setResList(
       jsonData?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants,
@@ -52,6 +52,7 @@ const BodyComponent = () => {
         <input
           type="text"
           name="searchText"
+          data-testid="searchInput"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
@@ -62,7 +63,7 @@ const BodyComponent = () => {
         <button
           type="submit"
           className="mx-2 bg-green-500 text-white rounded-lg p-1"
-          onClick={() => filterListByName()}>
+          onClick={() => filterListByName(searchText)}>
           Search
         </button>
       </div>

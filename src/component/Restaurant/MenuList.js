@@ -39,7 +39,7 @@ export default function MenuList({ listData, isOpen, setOpenIndex }) {
             {itemCards?.map((item) => {
               const menuData = item.card.info;
               return (
-                <li key={menuData.id}>
+                <li data-testid="menuItem" key={menuData.id}>
                   <div id="menu-card" className="border-css">
                     <div id="menu-detail" className="px-4 pt-4">
                       <img
