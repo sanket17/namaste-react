@@ -39,7 +39,7 @@ export default function MenuList({ listData, isOpen, setOpenIndex }) {
             {itemCards?.map((item) => {
               const menuData = item.card.info;
               return (
-                <li data-testid="menuItem" key={menuData.id}>
+                <li data-cy="menuItem" data-testid="menuItem" key={menuData.id}>
                   <div id="menu-card" className="border-css">
                     <div id="menu-detail" className="px-4 pt-4">
                       <img
@@ -58,7 +58,9 @@ export default function MenuList({ listData, isOpen, setOpenIndex }) {
                         src={`${MENU_IMAGE}${menuData.imageId}`}
                         alt={menuData.name}
                       />
-                      <button onClick={() => handleAddItem(menuData)}>
+                      <button
+                        data-cy="addItemButton"
+                        onClick={() => handleAddItem(menuData)}>
                         Add
                       </button>
                     </div>
