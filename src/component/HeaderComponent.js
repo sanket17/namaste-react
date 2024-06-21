@@ -28,12 +28,18 @@ const HeaderComponent = () => {
         </li>
         <li onClick={() => navigate("/cart")}>
           <span className="flex flex-wrap">
-            <img className="cart-logo" src={Cart} alt="cart" /> (
-            {cartItems.length})
+            <img
+              data-cy="cart-image"
+              className="cart-logo"
+              src={Cart}
+              alt="cart"
+            />{" "}
+            ({cartItems.length})
           </span>
         </li>
         <li>
           <button
+            data-cy="loginButton"
             onClick={() => {
               if (buttonText === "Login") setButtonText("Logout");
               else setButtonText("Login");

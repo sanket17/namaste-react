@@ -19,7 +19,11 @@ const BodyComponent = () => {
   );
 
   const fetchData = async () => {
-    const data = await fetch(GET_RESTAURANT_LIST);
+    const data = await fetch(GET_RESTAURANT_LIST, {
+      headers: {
+        "x-cors-api-key": "temp_9dd644fdd02b5a777748a1165f54bbcf",
+      },
+    });
 
     const jsonData = await data.json();
     // console.log(
