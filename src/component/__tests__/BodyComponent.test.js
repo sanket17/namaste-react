@@ -2,7 +2,7 @@ import { BrowserRouter } from "react-router-dom";
 import BodyComponent from "../BodyComponent";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import ResListDataMock from "../mocks/ResListDataMock.json";
+import ResListDataMock from "../mocks/mockResListData.json";
 import { act } from "react";
 
 global.fetch = jest.fn(() => {

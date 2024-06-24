@@ -1,6 +1,17 @@
+import {
+  GET_RESTAURANT_LIST,
+  GET_RESTAURANT_DETAIL,
+} from "../../src/Utils/constant";
+
 describe("Landing Page Testing", () => {
   beforeEach(() => {
     cy.visit("/");
+    cy.intercept("GET", GET_RESTAURANT_LIST, {
+      fixture: "../../src/component/mocks/mockResListData.json",
+    });
+    cy.intercept("GET", GET_RESTAURANT_DETAIL, {
+      fixture: "../../src/component/mocks/mockRestaurantDetail.json",
+    });
   });
 
   it("Should render home page", () => {
