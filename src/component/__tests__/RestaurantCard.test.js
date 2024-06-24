@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import RestaurantCardComponent from "../RestaurantCardComponent";
-import RestaurantCardMockData from "../mocks/RestaurantCardMockData.json";
+import RestaurantCardMockData from "../mocks/mockRestaurantCardData.json";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 import withPromtedRestaurantCard from "../Restaurant/PromotedRestaurantCard";
